@@ -1,0 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+name: Sample test cypress-test-results
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    name: Run sample tests
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/checkout@v3
+
+      - run: cd /home/runner/work/sample-cypress-test-results/sample-cypress-test-results && npm run reinstall
+
+      - uses: cypress-io/github-action@v4
+        id: run-tests
+        with:
+          spec: cypress/e2e/1-getting-started/todo.cy.js
+          install: false
+
+      - run: echo "total test - ${{steps.run-tests.outputs.numOfTestFiles}}"
+
+      - uses: nhantrantrong/convert-milliseconds-to-hms-actions@v1.0.0
+        id: convert-duration-time
+        with:
+          inputMilliseconds: ${{ steps.run-tests.outputs.durationInMilliseconds }}

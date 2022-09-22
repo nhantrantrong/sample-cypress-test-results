@@ -1,0 +1,26 @@
+{
+  "name": "sample-cypress-test-results",
+  "version": "1.0.0",
+  "description": "This is sample repository to test cypress-test-results",
+  "main": "index.js",
+  "scripts": {
+    "reinstall": "rm -rf node_modules && npm install",
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhantrantrong/sample-cypress-test-results.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhantrantrong/sample-cypress-test-results/issues"
+  },
+  "homepage": "https://github.com/nhantrantrong/sample-cypress-test-results#readme",
+  "dependencies": {
+    "cypress": "^10.8.0",
+    "cypress-test-results": "^1.1.0"
+  }
+}
